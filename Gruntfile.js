@@ -9,7 +9,7 @@ module.exports = function(grunt){
 	miappConfig = {
 		path: 'webapp/',
 	    devUrl: 'miapp.vm',
-	    stylesheetsDir: 'webapp/css',
+	    css: 'webapp/static/css/',
 	    port: 9000
 	  };
 
@@ -28,22 +28,18 @@ module.exports = function(grunt){
 
 		stylus: {
             compile: {
-                options: {
-                    paths: [stylesheetsDir],
-                    'include css': true
-                },
                 files: {
-                    '<%= webapp.path %>/css/app.min.css': stylesheetsDir + '/index.styl' 
+                    'webapp/static/css/style.css': 'webapp/static/css/style.styl' 
                 }
             }
         },
 
         watch: {
             stylesheets: {
-                files: [stylesheetsDir + '/**/*.styl', stylesheetsDir + '/**/*.css'],
+                files: ['webapp/static/css/style.styl', 'webapp/static/css/style.css'],
                 tasks: ['stylus'],
                 options: {
-                    interrupt: true
+                    interrupt: false
                 }
             }
         }
@@ -51,5 +47,5 @@ module.exports = function(grunt){
 
 	});
 
-	grunt.registerTask('default', ['connect', 'compile', 'watch']);
+	grunt.registerTask('default', ['connect','watch']);
 };

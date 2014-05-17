@@ -3,5 +3,6 @@ Project with Stylus
 
 1- Download
 2- node install (nodejs.org)
-3- npm install (package.json)
+3- npm install -g stylus
+4- npm install (package.json)
 5- (run) grunt
